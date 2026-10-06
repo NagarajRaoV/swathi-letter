@@ -1,0 +1,209 @@
+@import "tailwindcss";
+
+:root {
+  --cream: #fdf8f2;
+  --blush: #f5d6d0;
+  --blush-dark: #e8b4ac;
+  --maroon: #6b1a2a;
+  --maroon-light: #9b3a4a;
+  --gold: #c9a96e;
+  --gold-light: #e8d5a3;
+  --warm-white: #fffaf5;
+  --text-dark: #2c1810;
+  --text-mid: #5c3d35;
+  --text-light: #8b6b63;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--cream);
+  color: var(--text-dark);
+  font-family: 'Lato', sans-serif;
+  overflow-x: hidden;
+}
+
+.font-serif {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.font-script {
+  font-family: 'Dancing Script', cursive;
+}
+
+/* Petal animation */
+@keyframes petalFall {
+  0% {
+    transform: translateY(-10vh) rotate(0deg) translateX(0px);
+    opacity: 0;
+  }
+  10% { opacity: 0.8; }
+  90% { opacity: 0.6; }
+  100% {
+    transform: translateY(110vh) rotate(720deg) translateX(80px);
+    opacity: 0;
+  }
+}
+
+@keyframes heartFloat {
+  0% { transform: translateY(0) scale(1); opacity: 0.7; }
+  50% { transform: translateY(-20px) scale(1.1); opacity: 1; }
+  100% { transform: translateY(0) scale(1); opacity: 0.7; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes breathe {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.03); opacity: 0.9; }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease forwards;
+}
+
+.animate-heart {
+  animation: heartFloat 3s ease-in-out infinite;
+}
+
+.animate-breathe {
+  animation: breathe 4s ease-in-out infinite;
+}
+
+.gold-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--gold) 0%,
+    #f0d896 25%,
+    var(--gold) 50%,
+    #f0d896 75%,
+    var(--gold) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
+
+.section-hidden {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.section-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--cream);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--blush-dark);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--maroon-light);
+}
+
+/* Divider line */
+.divider-gold {
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+  margin: 2rem auto;
+  max-width: 400px;
+}
+
+/* Card hover effect */
+.commitment-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+.commitment-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(107, 26, 42, 0.12);
+}
+
+/* Feeling button */
+.feeling-btn {
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+.feeling-btn:hover {
+  transform: translateY(-2px);
+  border-color: var(--blush-dark);
+}
+.feeling-btn.selected {
+  border-color: var(--maroon);
+  background: linear-gradient(135deg, #fff5f5, #fdf0f0);
+  transform: scale(1.03);
+}
+
+/* Timeline */
+.timeline-node {
+  transition: all 0.4s ease;
+}
+.timeline-node:hover .timeline-dot {
+  transform: scale(1.3);
+  background: var(--maroon);
+}
+
+/* Letter paper texture effect */
+.letter-paper {
+  background: 
+    linear-gradient(rgba(253, 248, 242, 0.97), rgba(253, 248, 242, 0.97)),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 27px,
+      rgba(201, 169, 110, 0.15) 28px
+    );
+  background-attachment: local;
+}
+
+/* Photo placeholder */
+.photo-slot {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.photo-slot:hover {
+  transform: scale(1.02);
+  border-color: var(--gold) !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .hero-title {
+    font-size: 3.5rem !important;
+  }
+}
