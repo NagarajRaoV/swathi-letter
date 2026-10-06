@@ -202,17 +202,7 @@ export default function Home() {
                   Swathi, I am writing this not to defend myself, win an argument, or ask you to forget what has happened.
                 </p>
 
-                <p
-                  style={{
-                    fontFamily: "Lato, sans-serif",
-                    fontSize: "1rem",
-                    lineHeight: "1.85",
-                    color: "var(--text-mid)",
-                    marginBottom: "1.5rem",
-                  }}
-                >
-                  I am writing this because I know I have made mistakes. Some of my words and actions have hurt you — and you did not deserve that.
-                </p>
+               
 
                 <blockquote
                   className="rounded-2xl p-6 mb-6"
